@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mueen Uddin - Portfolio</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            primary: '#00D9FF',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Feather Icons -->
+  <script src="https://unpkg.com/feather-icons"></script>
+
+  <!-- Custom Styles for Animations -->
+  <style>
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body class="font-sans bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-100 selection:bg-primary/20 selection:text-primary min-h-screen transition-colors duration-300">
+  
+  <!-- Navigation -->
+  <nav class="fixed w-full z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-sm border-b border-gray-200 dark:border-gray-800 transition-colors duration-300">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="#home" class="text-xl font-bold tracking-tighter text-gray-900 dark:text-white">
+        MUEEN<span class="text-primary">.</span>
+      </a>
+      <div class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-600 dark:text-gray-300">
+        <a href="#about" class="hover:text-primary transition-colors">About</a>
+        <a href="#skills" class="hover:text-primary transition-colors">Skills</a>
+        <a href="#projects" class="hover:text-primary transition-colors">Projects</a>
+        <a href="#contact" class="hover:text-primary transition-colors">Contact</a>
+        <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-800 transition-colors focus:outline-none" aria-label="Toggle dark mode">
+          <i data-feather="moon" id="theme-icon-moon" class="w-4 h-4 text-gray-600 dark:hidden block"></i>
+          <i data-feather="sun" id="theme-icon-sun" class="w-4 h-4 text-yellow-400 hidden dark:block"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="pt-32 pb-16 px-6 max-w-6xl mx-auto">
+    <div class="bg-[#07121D] text-white p-8 md:p-16 md:py-24 rounded-3xl shadow-2xl flex flex-col items-start justify-center relative overflow-hidden min-h-[500px] fade-in">
+      <div class="relative z-10 w-full md:max-w-[55%]">
+        <h2 class="text-primary font-semibold tracking-widest uppercase mb-4 text-sm">Hello, I am</h2>
+        <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight tracking-tight">
+          Mueen <br/>Uddin<span class="text-primary">.</span>
+        </h1>
+        <p class="text-lg text-gray-300 mb-8 max-w-xl leading-relaxed">
+          AI Tool Operator & Social Media Content Creator, building systems and content that scale.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href="#projects" class="bg-primary hover:bg-[#00BFFF] text-[#07121D] px-8 py-3 rounded-full font-bold transition-all flex items-center group shadow-lg shadow-primary/20">
+            View Work <i data-feather="arrow-right" class="inline-block ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+          </a>
+          <a href="#contact" class="border border-white/20 hover:border-white text-white px-8 py-3 rounded-full font-medium transition-all">
+            Contact Me
+          </a>
+        </div>
+      </div>
+      
+      <div class="absolute inset-y-0 right-0 w-full md:w-[50%] h-full pointer-events-none overflow-hidden flex justify-end">
+          <!-- Subtle blue glow behind portrait -->
+          <div class="absolute top-1/2 right-1/4 -translate-y-1/2 w-[300px] h-[300px] bg-[#00BFFF] blur-[140px] opacity-30 rounded-full"></div>
+          
+          <!-- Image -->
+          <img 
+            src="./public/owner.png" 
+            alt="Mueen Uddin" 
+            class="absolute inset-0 w-full h-full object-cover object-[center_right] contrast-[1.15] brightness-[1.05] saturate-[1.1]" 
+            style="-webkit-mask-image: linear-gradient(to right, transparent 0%, black 35%); mask-image: linear-gradient(to right, transparent 0%, black 35%);"
+          />
+
+          <!-- Left/Bottom Background Blending Overlays -->
+          <div class="absolute inset-y-0 left-0 w-1/2 bg-gradient-to-r from-[#07121D] via-[#07121D]/50 to-transparent"></div>
+          <div class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-[#07121D] to-transparent"></div>
+
+          <!-- Soft blue neon light streak across face -->
+          <div class="absolute inset-0 mix-blend-color-dodge opacity-50" 
+            style="background: linear-gradient(110deg, transparent 40%, rgba(0, 217, 255, 0.3) 45%, rgba(0, 191, 255, 0.7) 50%, transparent 55%)"
+          ></div>
+          <div class="absolute inset-0 mix-blend-overlay opacity-40" 
+            style="background: linear-gradient(to right, transparent 30%, rgba(0, 217, 255, 0.3) 100%)"
+          ></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="py-16 px-6 max-w-6xl mx-auto">
+    <div class="bg-white dark:bg-gray-800 p-8 md:p-12 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 text-center transition-colors duration-300 fade-in">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">About Me</h2>
+      <div class="w-16 h-1 bg-primary mx-auto mb-10"></div>
+      <p class="text-lg text-gray-600 dark:text-gray-300 leading-relaxed max-w-3xl mx-auto">
+        I am an AI Tool Operator and Social Media Content Creator with <span class="text-gray-900 dark:text-white font-semibold">2+ years of experience</span>, producing content that has garnered millions of views using various AI platforms. Additionally, I use AI for coding basic tools and specialize in <span class="text-gray-900 dark:text-white font-semibold">WordPress SEO</span> and performance optimization.
+      </p>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="py-16 px-6 max-w-6xl mx-auto">
+    <div class="text-center mb-10">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">My Expertise</h2>
+      <div class="w-16 h-1 bg-primary mx-auto"></div>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-lg transition-all group duration-300 fade-in">
+        <div class="w-12 h-12 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/10 transition-colors">
+          <i data-feather="cpu" class="w-6 h-6 text-gray-700 dark:text-gray-300 group-hover:text-primary transition-colors"></i>
+        </div>
+        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">AI Tools Operator</h3>
+        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Expert in leveraging AI platforms to maximize efficiency and content quality.</p>
+      </div>
+      <div class="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-lg transition-all group duration-300 fade-in" style="transition-delay: 100ms">
+        <div class="w-12 h-12 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/10 transition-colors">
+          <i data-feather="play-circle" class="w-6 h-6 text-gray-700 dark:text-gray-300 group-hover:text-primary transition-colors"></i>
+        </div>
+        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Social Media Content Creator</h3>
+        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Producing viral content with millions of views across various platforms.</p>
+      </div>
+      <div class="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-lg transition-all group duration-300 fade-in" style="transition-delay: 200ms">
+        <div class="w-12 h-12 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/10 transition-colors">
+          <i data-feather="code" class="w-6 h-6 text-gray-700 dark:text-gray-300 group-hover:text-primary transition-colors"></i>
+        </div>
+        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Coding with AI</h3>
+        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Developing basic tools and scripts using AI-assisted coding techniques.</p>
+      </div>
+      <div class="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-lg transition-all group duration-300 fade-in" style="transition-delay: 300ms">
+        <div class="w-12 h-12 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/10 transition-colors">
+          <i data-feather="search" class="w-6 h-6 text-gray-700 dark:text-gray-300 group-hover:text-primary transition-colors"></i>
+        </div>
+        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">SEO</h3>
+        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Optimizing content and websites to rank higher on search engines.</p>
+      </div>
+      <div class="bg-white dark:bg-gray-800 p-6 rounded-xl border border-gray-200 dark:border-gray-700 hover:border-primary/50 dark:hover:border-primary/50 hover:shadow-lg transition-all group duration-300 fade-in" style="transition-delay: 400ms">
+        <div class="w-12 h-12 bg-gray-50 dark:bg-gray-700 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/10 transition-colors">
+          <i data-feather="zap" class="w-6 h-6 text-gray-700 dark:text-gray-300 group-hover:text-primary transition-colors"></i>
+        </div>
+        <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">WordPress Speed Optimizer</h3>
+        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">Enhancing WordPress performance for lightning-fast load times.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="py-16 px-6 max-w-6xl mx-auto">
+    <div class="text-center mb-10">
+      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">Featured Projects</h2>
+      <div class="w-16 h-1 bg-primary mx-auto"></div>
+    </div>
+    <div class="space-y-8">
+      
+      <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden flex flex-col md:flex-row group transition-colors duration-300 fade-in">
+        <div class="md:w-1/2 bg-gray-900 relative overflow-hidden flex flex-col justify-end min-h-[240px]">
+          <div class="absolute inset-0 w-full h-full flex">
+            <div class="flex-1 relative overflow-hidden">
+              <img src="./public/viral1.png" alt="Viral Video Content Project" class="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-overlay group-hover:scale-110 group-hover:opacity-80 transition-all duration-700" />
+            </div>
+            <div class="flex-1 relative overflow-hidden">
+              <img src="./public/viral2.png" alt="Viral Video Content Project" class="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-overlay group-hover:scale-110 group-hover:opacity-80 transition-all duration-700" />
+            </div>
+          </div>
+          <div class="absolute top-0 right-0 p-4 opacity-10">
+            <i data-feather="external-link" class="w-24 h-24 text-white"></i>
+          </div>
+          <div class="relative z-10 p-8 bg-gradient-to-t from-gray-900 via-gray-900/80 to-transparent pt-12">
+            <div class="text-primary font-bold text-sm uppercase tracking-wider mb-2">Metric</div>
+            <div class="text-white text-2xl font-light leading-tight">10K Followers & 1.5M Views in 7 Days</div>
+          </div>
+        </div>
+        <div class="md:w-1/2 p-8 flex flex-col justify-center">
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Viral Video Content Project</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">Spearheaded a rapid-growth Facebook video content campaign. Leveraged trend analysis and optimized pacing to achieve viral reach and significant audience growth within a single week.</p>
+          <div>
+            <span class="inline-flex items-center text-sm font-medium text-gray-600 dark:text-gray-400 group-hover:text-primary transition-colors cursor-pointer">
+              Explore Details <i data-feather="arrow-right" class="inline-block ml-2 w-4 h-4"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden flex flex-col md:flex-row group transition-colors duration-300 fade-in">
+        <div class="md:w-1/2 bg-gray-900 relative overflow-hidden flex flex-col justify-end min-h-[240px]">
+          <div class="absolute inset-0 w-full h-full flex">
+            <div class="flex-1 relative overflow-hidden">
+              <img src="./public/thumblytics.png" alt="AI Thumbnail Analysis System" class="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-overlay group-hover:scale-110 group-hover:opacity-80 transition-all duration-700" />
+            </div>
+          </div>
+          <div class="absolute top-0 right-0 p-4 opacity-10">
+            <i data-feather="external-link" class="w-24 h-24 text-white"></i>
+          </div>
+          <div class="relative z-10 p-8 bg-gradient-to-t from-gray-900 via-gray-900/80 to-transparent pt-12">
+            <div class="text-primary font-bold text-sm uppercase tracking-wider mb-2">Metric</div>
+            <div class="text-white text-2xl font-light leading-tight">Increased CTR & Impressions</div>
+          </div>
+        </div>
+        <div class="md:w-1/2 p-8 flex flex-col justify-center">
+          <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">AI Thumbnail Analysis System</h3>
+          <p class="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">Assisted social media content creators by implementing an AI-driven tool to analyze thumbnail strengths and weaknesses. Provided actionable insights to drastically improve Click-Through Rates (CTR).</p>
+          <div>
+            <span class="inline-flex items-center text-sm font-medium text-gray-600 dark:text-gray-400 group-hover:text-primary transition-colors cursor-pointer">
+              Explore Details <i data-feather="arrow-right" class="inline-block ml-2 w-4 h-4"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 px-6 max-w-6xl mx-auto mt-12 bg-black text-white rounded-3xl shadow-xl fade-in">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">Let's work <br/>together<span class="text-primary">.</span></h2>
+      <p class="text-gray-400 mb-10 max-w-lg mx-auto text-lg">
+        Interested in collaborating on a project or need help optimizing your content strategy? Reach out anytime.
+      </p>
+    </div>
+    <div class="grid md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+      <div class="space-y-6">
+        <a href="mailto:mueentech@outlook.com" class="flex items-center text-gray-300 hover:text-white transition-colors group p-4 rounded-xl hover:bg-white/5 border border-transparent hover:border-white/10">
+          <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center mr-6 group-hover:bg-primary transition-colors">
+            <i data-feather="mail" class="w-5 h-5 text-gray-300 group-hover:text-gray-900"></i>
+          </div>
+          <span class="text-lg font-medium">mueentech@outlook.com</span>
+        </a>
+        <a href="tel:03041188171" class="flex items-center text-gray-300 hover:text-white transition-colors group p-4 rounded-xl hover:bg-white/5 border border-transparent hover:border-white/10">
+          <div class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center mr-6 group-hover:bg-primary transition-colors">
+            <i data-feather="phone" class="w-5 h-5 text-gray-300 group-hover:text-gray-900"></i>
+          </div>
+          <span class="text-lg font-medium">03041188171</span>
+        </a>
+      </div>
+      <div class="space-y-6">
+        <div class="flex items-center text-gray-300 p-4 rounded-xl">
+          <div class="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center mr-6">
+            <i data-feather="map-pin" class="w-5 h-5 text-gray-400"></i>
+          </div>
+          <span class="text-lg font-medium">Khairpur</span>
+        </div>
+        <a href="https://www.linkedin.com/in/mueenuddinai" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between text-gray-300 hover:text-white transition-colors group p-4 rounded-xl hover:bg-white/5 border border-transparent hover:border-white/10">
+          <div class="flex items-center">
+            <div class="w-12 h-12 bg-[#0A66C2]/20 rounded-full flex items-center justify-center mr-6 group-hover:bg-[#0A66C2] transition-colors">
+              <i data-feather="linkedin" class="w-5 h-5 text-[#0A66C2] group-hover:text-white"></i>
+            </div>
+            <div>
+              <div class="text-lg font-medium">LinkedIn</div>
+              <div class="text-gray-400 text-sm">@mueenuddinai</div>
+            </div>
+          </div>
+          <i data-feather="arrow-right" class="w-5 h-5 text-gray-400 group-hover:text-primary transition-colors"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="bg-transparent text-gray-500 dark:text-gray-400 pt-12 pb-32 border-t border-gray-200 dark:border-gray-800 text-center mt-12 transition-colors duration-300">
+    <div class="max-w-6xl mx-auto px-6">
+      <p class="text-sm">
+        &copy; <span id="year"></span> Mueen Uddin. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    // Initialize Feather Icons
+    feather.replace();
+
+    // Set Current Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Dark Mode Logic
+    const themeToggle = document.getElementById('theme-toggle');
+    
+    // Check local storage or system preference
+    if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+
+    themeToggle.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+      if (document.documentElement.classList.contains('dark')) {
+        localStorage.setItem('theme', 'dark');
+      } else {
+        localStorage.setItem('theme', 'light');
+      }
+    });
+
+    // Intersection Observer for scroll animations
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in').forEach(element => {
+      observer.observe(element);
+    });
+  </script>
+</body>
+</html>
+
